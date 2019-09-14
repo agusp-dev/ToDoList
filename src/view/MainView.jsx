@@ -1,36 +1,16 @@
 import React from 'react'
-import TaskList from '../components/tasklist/TaskList'
+import MainComponent from '../components/MainComponent/MainComponent'
+import './styles.css'
 
 class MainView extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        return <div className='ui container'>
-                    To Do List
-                    <div className='ui divider' />
-                    <div className='ui grid'>
-                        <div className='three column row'>
-                            <div className='column'>
-                                <TaskList 
-                                    name='To Do'
-                                    color='red'/>
-                            </div>
-                            <div className='column'>
-                                <TaskList 
-                                    name='In Progress'
-                                    color='orange'/>
-                            </div>
-                            <div className='column'>
-                                <TaskList 
-                                    name='Done'
-                                    color='green'/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    }
+	render() {
+		return (
+			<div className='ui container'>
+				<h1 className='ui header main-header'>To Do List</h1>
+				<MainComponent />
+			</div>
+		)
+	}
 }
 
 export default MainView
