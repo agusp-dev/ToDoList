@@ -1,7 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'semantic-ui-react'
-import MainComponent from '../components/MainComponent/MainComponent'
-import { taskLib } from '../utils/TaskLib'
+import MainComponent from '../../components/MainComponent/MainComponent'
+import { taskLib } from '../../utils/TaskLib'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 class MainView extends React.Component {
@@ -11,7 +12,6 @@ class MainView extends React.Component {
 			newTaskModal: false
 		}
 		this.onHandleNewTask = this.onHandleNewTask.bind(this)
-		this.onHandleRemovedTasks = this.onHandleRemovedTasks.bind(this)
 
 		this.onSubmitNewTask = this.onSubmitNewTask.bind(this)
 		this.onCloseModal = this.onCloseModal.bind(this)
@@ -36,46 +36,41 @@ class MainView extends React.Component {
 		this.onCloseModal(e)
 	}
 
-	onHandleRemovedTasks(e) {
-		console.log('onHandleRemovedTasks')
-	}
-
 	render() {
 		return (
 			<div className='ui container'>
 
-			<Modal size='tiny' open={this.state.newTaskModal} onClose={this.onCloseModal}>
-				<Modal.Header>Create New Task</Modal.Header>
-				<Modal.Content>
-					<form id='new-task' className='ui form' onSubmit={this.onSubmitNewTask}>
-						<div className='field'>
-							<div className='ui input'>
-								<input name='title' type="text" placeholder='Title'/>
+				<Modal size='tiny' open={this.state.newTaskModal} onClose={this.onCloseModal}>
+					<Modal.Header>Create New Task</Modal.Header>
+					<Modal.Content>
+						<form id='new-task' className='ui form' onSubmit={this.onSubmitNewTask}>
+							<div className='field'>
+								<div className='ui input'>
+									<input name='title' type="text" placeholder='Title'/>
+								</div>
 							</div>
-						</div>
-						<div className='field'>
-							<div className='ui input'>
-								<textarea name='description' placeholder="Description" rows="4"></textarea>
+							<div className='field'>
+								<div className='ui input'>
+									<textarea name='description' placeholder="Description" rows="4"></textarea>
+								</div>
 							</div>
-						</div>
-					</form>
-				</Modal.Content>
-				<Modal.Actions>
-					<Button 
-						negative
-						onClick={this.onCloseModal}>
-							Cancel
-					</Button>
-					<Button
-						type='submit'
-						form='new-task'
-						positive>
-							Save
-					</Button>
-				</Modal.Actions>
-			</Modal>
+						</form>
+					</Modal.Content>
+					<Modal.Actions>
+						<Button 
+							negative
+							onClick={this.onCloseModal}>
+								Cancel
+						</Button>
+						<Button
+							type='submit'
+							form='new-task'
+							positive>
+								Save
+						</Button>
+					</Modal.Actions>
+				</Modal>
 
-				<h1 className='ui huge header main-header'>To Do List</h1>
 				<div className="ui vertically divided grid">
 					<div className='two column row'>
 						<div className='column'>
@@ -86,10 +81,11 @@ class MainView extends React.Component {
 								onClick={this.onHandleNewTask}>
 								<i className='plus icon'></i>
 									New Task</button>
-							<button className='ui red button'
-								onClick={this.onHandleRemovedTasks}>
-								<i className='trash icon'></i>
-									Removed Tasks</button>
+							<Link to='/removed'>
+								<button className='ui red button'>
+									<i className='trash icon'></i>
+										Removed Tasks</button>
+							</Link>
 						</div>
 					</div>
 				</div>
