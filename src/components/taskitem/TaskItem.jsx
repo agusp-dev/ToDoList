@@ -7,7 +7,7 @@ class TaskItem extends React.Component {
 				this.id = this.props.id
         this.title = this.props.title
 				this.description = this.props.description
-				this.state = this.props.state
+				this.stt = this.props.state
 				this.onChangeTask = this.props.onChangeTask
 				this.onDeleteTask = this.props.onDeleteTask
 
@@ -17,7 +17,7 @@ class TaskItem extends React.Component {
 		
 		onHandleChangeState(e) {
 			e.preventDefault()
-			this.onChangeTask(this.id, this.state)
+			this.onChangeTask(this.id, this.stt)
 		}
 
 		onHandleDeleteTask(e) {
@@ -26,7 +26,7 @@ class TaskItem extends React.Component {
 		}
 
 		getItemButtons() {
-			if (this.state !== taskStates.DONE) {
+			if (this.stt !== taskStates.DONE) {
 				return (
 					<div className='ui right aligned container'>
 						<button className="ui circular icon button" 

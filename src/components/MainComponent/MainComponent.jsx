@@ -35,14 +35,12 @@ class MainComponent extends React.Component {
 	render() {
 		return (
 			<div className='ui container'>
-				<div className='ui divider'></div>
 				<div className='ui grid'>
 					<div className='three column row'>
-						
 					<div className='column'>
 							<TaskList 
 									name='To Do'
-									color='red'
+									color='blue'
 									tasks={ this.state.tasks.filter( task => task.state === 0 )}
 									onChangeTask={ this.onChangeTaskState }
 									onDeleteTask={ this.onDeleteTask } />
@@ -63,7 +61,6 @@ class MainComponent extends React.Component {
 										onChangeTask={ this.onChangeTaskState }
 										onDeleteTask={ this.onDeleteTask } />
 						</div>
-
 					</div>
 				</div>
 			</div>

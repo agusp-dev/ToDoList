@@ -33,6 +33,21 @@ let taskList = [
 	}
 ]
 
+function addTask(title, description) {
+	const id = getLastId() + 1
+	createTask(id, title, description, taskStates.TO_DO)
+}
+
+function getLastId() {
+	if (!taskList) return 1
+	return Math.max.apply( Math, taskList.map( task => task.id ) )
+}
+
+function createTask(id, title, description, state) {
+	if (!taskList) taskList = []
+	taskList.push({ id, title, description, state })
+}
+
 function removeTask(id) {
 	if (!taskList) return
 	let task = getTask(id)
@@ -51,6 +66,7 @@ function changeTask(id, oldState) {
 		case taskStates.IN_PROGRESS:
 			changeTaskState(task, taskStates.DONE)
 			break	
+		default: return
 	}
 }
 
@@ -64,6 +80,7 @@ function changeTaskState(task, newState) {
 
 export const taskLib = {
 	taskList,
+	addTask,
 	removeTask,
 	changeTask
 }
