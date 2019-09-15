@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TasksRemovedComponent from '../../components/TasksRemovedComponent/TasksRemovedComponent'
 
 class TasksRemovedView extends React.Component {
-
+	
 	render() {
 		return (
 			<div className='ui container'>
@@ -22,6 +23,7 @@ class TasksRemovedView extends React.Component {
 					</div>
 				</div>
 				<div className='ui divider'></div>
+				<TasksRemovedComponent />
 			</div>
 		)
 	}

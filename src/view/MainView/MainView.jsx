@@ -12,7 +12,6 @@ class MainView extends React.Component {
 			newTaskModal: false
 		}
 		this.onHandleNewTask = this.onHandleNewTask.bind(this)
-
 		this.onSubmitNewTask = this.onSubmitNewTask.bind(this)
 		this.onCloseModal = this.onCloseModal.bind(this)
 	}

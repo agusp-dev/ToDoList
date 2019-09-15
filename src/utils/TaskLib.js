@@ -70,6 +70,16 @@ function changeTask(id, oldState) {
 	}
 }
 
+function getRemovedTaskList() {
+	if (!taskList) return []
+	return taskList.filter( task => task.state === taskStates.DELETED )
+}
+
+function restoreTask(task) {
+	if (!task) return
+	changeTaskState(task, taskStates.TO_DO)
+}
+
 function getTask(id) {
 	return taskList.find( task => task.id === id )
 }
@@ -82,5 +92,7 @@ export const taskLib = {
 	taskList,
 	addTask,
 	removeTask,
-	changeTask
+	changeTask,
+	getRemovedTaskList,
+	restoreTask
 }
