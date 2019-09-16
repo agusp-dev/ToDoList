@@ -1,5 +1,5 @@
 import React from 'react'
-import TaskList from '../TaskList/TaskList'
+import TaskList from '../Tasklist/TaskList'
 import { taskLib } from '../../utils/TaskLib'
 
 class MainComponent extends React.Component {
